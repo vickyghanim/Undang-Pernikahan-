@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Undangan Pernikahan | Vigma & Aisra</title>
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&family=Nunito:wght@300;400;600&family=Amiri&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      :root {
+        --bg: #020617;
+        --accent: #d4b16a;
+        --soft: #111827;
+        --text: #e5e7eb;
+        --muted: #9ca3af;
+      }
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      html.lock,
+      body.lock {
+        overflow: hidden;
+        height: 100%;
+      }
+
+      body {
+        font-family: Nunito, sans-serif;
+        background: radial-gradient(circle at top, #1e293b, #020617);
+        color: var(--text);
+        line-height: 1.7;
+      }
+
+      /* ===== STARS ===== */
+      .star {
+        position: fixed;
+        width: 2px;
+        height: 2px;
+        background: #fff;
+        opacity: 0.6;
+        animation: twinkle 4s infinite alternate;
+        z-index: 0;
+      }
+      @keyframes twinkle {
+        from {
+          opacity: 0.2;
+        }
+        to {
+          opacity: 0.8;
+        }
+      }
+
+      /* ===== BULAN SABIT COVER ===== */
+      .cover-moon {
+        width: 140px;
+        height: 140px;
+        border-radius: 50%;
+        background: radial-gradient(circle, #fff, #d4b16a);
+        box-shadow: -26px 0 0 0 var(--bg), 0 0 25px rgba(212, 177, 106, 0.4);
+        margin: 0 auto 28px;
+        animation: float 6s ease-in-out infinite;
+      }
+      @keyframes float {
+        0%,
+        100% {
+          transform: translateY(0);
+        }
+        50% {
+          transform: translateY(-14px);
+        }
+      }
+
+      /* ===== COVER ===== */
+      .cover {
+        position: fixed;
+        inset: 0;
+        background: #020617;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 10;
+      }
+      .cover-box {
+        padding: 56px 28px;
+        max-width: 420px;
+        width: 100%;
+        text-align: center;
+        border: 1px solid rgba(212, 177, 106, 0.25);
+        border-radius: 32px;
+        box-shadow: 0 40px 120px rgba(0, 0, 0, 0.9);
+      }
+      .basmallah {
+        font-family: Amiri, serif;
+        font-size: 1.9rem;
+        color: var(--accent);
+        margin-bottom: 24px;
+        line-height: 1.8;
+        text-shadow: 0 0 15px rgba(212, 177, 106, 0.3);
+      }
+      .gold-line {
+        width: 80px;
+        height: 2px;
+        background: var(--accent);
+        margin: 0 auto 22px;
+      }
+      .couple-name {
+        font-family: "Libre Baskerville", serif;
+        font-size: 1.5rem;
+        letter-spacing: 2px;
+        margin-bottom: 10px;
+      }
+      .guest-text {
+        font-size: 0.85rem;
+        color: var(--muted);
+        margin-bottom: 28px;
+      }
+      .enter-btn {
+        padding: 10px 38px;
+        border-radius: 40px;
+        border: 1px solid var(--accent);
+        background: transparent;
+        color: var(--accent);
+      }
+      .enter-btn:hover {
+        background: var(--accent);
+        color: #020617;
+      }
+
+      /* ===== MAIN ===== */
+      main {
+        padding: 110px 16px 70px;
+      }
+      .page {
+        max-width: 900px;
+        margin: auto;
+        background: #020617;
+        border-radius: 30px;
+        padding: 44px 26px;
+        border: 1px solid rgba(212, 177, 106, 0.25);
+        box-shadow: 0 40px 120px rgba(0, 0, 0, 0.9);
+      }
+      .block {
+        text-align: center;
+        margin-bottom: 48px;
+      }
+      .block h2 {
+        font-family: "Libre Baskerville", serif;
+        font-size: 1.35rem;
+        margin-bottom: 14px;
+        color: var(--accent);
+      }
+      .block p {
+        font-size: 0.9rem;
+        color: var(--muted);
+      }
+      .arabic {
+        font-family: Amiri, serif;
+        font-size: 1.35rem;
+        color: #f8fafc;
+        margin-bottom: 12px;
+      }
+      .event {
+        background: var(--soft);
+        padding: 22px;
+        border-radius: 20px;
+      }
+      .event a {
+        color: var(--accent);
+        text-decoration: none;
+      }
+
+      /* ===== COUNTDOWN ===== */
+      .countdown {
+        display: flex;
+        justify-content: center;
+        gap: 14px;
+        margin-top: 18px;
+      }
+      .time {
+        background: #020617;
+        padding: 14px 16px;
+        border-radius: 16px;
+        min-width: 70px;
+        border: 1px solid rgba(212, 177, 106, 0.25);
+      }
+      .time span {
+        display: block;
+        font-weight: 700;
+        color: var(--accent);
+      }
+
+      footer {
+        text-align: center;
+        font-size: 0.85rem;
+        color: var(--muted);
+      }
+    </style>
+  </head>
+
+  <body class="lock">
+    <!-- STARS -->
+    <script>
+      for (let i = 0; i < 90; i++) {
+        let s = document.createElement("div");
+        s.className = "star";
+        s.style.left = Math.random() * 100 + "vw";
+        s.style.top = Math.random() * 100 + "vh";
+        document.body.appendChild(s);
+      }
+    </script>
+
+    <!-- COVER -->
+    <div class="cover" id="cover">
+      <div class="cover-box">
+        <div class="cover-moon"></div>
+        <div class="basmallah">بِسْمِ ٱللَّٰهِ ٱلرَّحْمَٰنِ ٱلرَّحِيمِ</div>
+        <div class="gold-line"></div>
+        <h1 class="couple-name">VIGMA & AISRA</h1>
+        <p id="guest" class="guest-text"></p>
+        <button id="openBtn" class="enter-btn">Masuk</button>
+      </div>
+    </div>
+
+    <main>
+      <div class="page">
+        <div class="block">
+          <div class="arabic">
+            يَا أَيُّهَا النَّاسُ اتَّقُوا رَبَّكُمُ الَّذِي خَلَقَكُم مِّن
+            نَّفْسٍ وَاحِدَةٍ
+          </div>
+          <p>
+            Wahai manusia! Bertakwalah kepada Tuhanmu yang telah menciptakan
+            kamu dari diri yang satu, dan darinya Allah menciptakan pasangannya,
+            dan dari keduanya Allah memperkembangbiakkan laki-laki dan perempuan
+            yang banyak.
+            <br /><br /><em>(QS. An-Nisa : 1)</em>
+          </p>
+        </div>
+
+        <div class="block">
+          <h2>Pasangan</h2>
+          <p><strong>Vigma</strong><br />&<br /><strong>Aisra</strong></p>
+        </div>
+
+        <div class="block">
+          <h2>Hari Bahagia</h2>
+          <div class="event">
+            Ahad, 20 April 2026<br /><br />
+            📍
+            <a
+              href="https://maps.google.com?q=Masjid+Agung+Jakarta"
+              target="_blank"
+            >
+              Masjid Agung Jakarta
+            </a>
+          </div>
+
+          <div class="countdown">
+            <div class="time"><span id="d">0</span>Hari</div>
+            <div class="time"><span id="h">0</span>Jam</div>
+            <div class="time"><span id="m">0</span>Menit</div>
+            <div class="time"><span id="s">0</span>Detik</div>
+          </div>
+        </div>
+
+        <footer>
+          Wassalamu’alaikum Warahmatullahi Wabarakatuh<br />
+          <strong style="color: var(--accent)">Vigma & Aisra</strong>
+        </footer>
+      </div>
+    </main>
+
+    <!-- AUDIO -->
+    <audio id="bgm" loop>
+      <source src="undanagan_pernikahan.mp3" type="audio/mpeg" />
+    </audio>
+
+    <script>
+      const cover = document.getElementById("cover");
+      const openBtn = document.getElementById("openBtn");
+      const music = document.getElementById("bgm");
+
+      /* OPEN + MUSIC FADE IN */
+      openBtn.onclick = () => {
+        cover.style.opacity = "0";
+        cover.style.transition = "1.2s ease";
+
+        music.volume = 0;
+        music.play().catch(() => {});
+        let v = 0;
+        const fade = setInterval(() => {
+          if (v < 0.8) {
+            v += 0.02;
+            music.volume = v;
+          } else clearInterval(fade);
+        }, 100);
+
+        setTimeout(() => {
+          cover.style.display = "none";
+          document.body.classList.remove("lock");
+        }, 1200);
+      };
+
+      /* COUNTDOWN */
+      const target = new Date("2026-04-20T08:00:00").getTime();
+      setInterval(() => {
+        const now = new Date().getTime();
+        const diff = target - now;
+        if (diff < 0) return;
+        d.innerText = Math.floor(diff / 86400000);
+        h.innerText = Math.floor((diff % 86400000) / 3600000);
+        m.innerText = Math.floor((diff % 3600000) / 60000);
+        s.innerText = Math.floor((diff % 60000) / 1000);
+      }, 1000);
+
+      /* GUEST */
+      const q = new URLSearchParams(location.search).get("to");
+      if (q) document.getElementById("guest").innerText = "Kepada Yth: " + q;
+    </script>
+  </body>
+</html>
